@@ -1,6 +1,6 @@
 {
     init: function(elevators, floors) {
-        //level2
+        //level3
         var elevator = elevators[0]; // Let's use the first elevator
 
         // Whenever the elevator is idle (has no more queued destinations) ...
