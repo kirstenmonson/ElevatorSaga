@@ -1,19 +1,27 @@
 {
     init: function(elevators, floors) {
-        //level3
+        //level4
         var elevator = elevators[0]; // Let's use the first elevator
+        var elevator2 = elevators[1];
 
         // Whenever the elevator is idle (has no more queued destinations) ...
         elevator.on("idle", function() {
-            // let's go to all the floors (or did we forget one?)
             elevator.goToFloor(0);
-            elevator.goToFloor(1);
-            elevator.goToFloor(2);
-            elevator.goToFloor(3);
-            elevator.goToFloor(4);
+        });
+
+
+        elevator.on("floor_button_pressed", function(floorNum) {
+            elevator.goToFloor(floorNum)
+        })
+        elevator2.on("floor_button_pressed", function(floorNum) {
+            elevator2.goToFloor(floorNum)
+        })
+        elevator2.on("idle", function() {
+            elevator2.goToFloor(1);
+            elevator2.goToFloor(0);
         });
     },
-    update: function(dt, elevators, floors) {
-        // We normally don't need to do anything here
-    }
+        update: function(dt, elevators, floors) {
+            // We normally don't need to do anything here
+        }
 }
